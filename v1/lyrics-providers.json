@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "providers": [
+    {
+      "id": "lrclib",
+      "displayName": "LRCLIB",
+      "baseUrl": "https://lrclib.net",
+      "userAgent": "Paattufy/1.0 (personal-use build)",
+      "search": {
+        "method": "GET",
+        "path": "/api/search",
+        "queryParams": {"q": "{query}"},
+        "resultsArrayPath": "$",
+        "fieldMap": {
+          "title": "trackName",
+          "artist": "artistName",
+          "album": "albumName",
+          "durationSec": "duration",
+          "synced": "syncedLyrics",
+          "plain": "plainLyrics",
+          "isInstrumental": "instrumental"
+        }
+      },
+      "fetchBest": {
+        "method": "GET",
+        "path": "/api/get",
+        "queryParams": {
+          "track_name": "{title}",
+          "artist_name": "{artist}",
+          "album_name": "{album}",
+          "duration": "{durationSec}"
+        }
+      },
+      "rateLimit": {"minDelayMs": 250}
+    }
+  ]
+}
