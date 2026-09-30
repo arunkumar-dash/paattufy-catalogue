@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "sites": [
+    {
+      "id": "masstamilan",
+      "title": "Masstamilan",
+      "link": "https://www.masstamilan.dev/",
+      "mode": "listing",
+      "listing": {
+        "listPageUrl": "https://www.masstamilan.dev/",
+        "cardLinkHrefPattern": "^/[a-z0-9-]+-songs(-[0-9]+)?$",
+        "captionLabels": {
+          "starring": "Starring:",
+          "music": "Music:",
+          "director": "Director:"
+        },
+        "albumPage": {
+          "zipLinkHrefContains": "/zip320/",
+          "zipLinkAltHrefContains": "/zip128/",
+          "linkExpiryNote": "Zip links are time-boxed (about 1 day); fetch immediately before download, do not cache long-term."
+        }
+      }
+    },
+    {
+      "id": "songspk",
+      "title": "SongsPK",
+      "link": "https://songspk.com.se/",
+      "mode": "browse"
+    }
+  ]
+}
