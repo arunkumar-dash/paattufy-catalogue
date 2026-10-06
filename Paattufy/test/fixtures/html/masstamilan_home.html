@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Latest Tamil Songs Download</title></head>
+<body>
+<header><a href="/">Home</a> <a href="/tamil-songs-a-to-z">A-Z</a> <a href="/category/latest">Latest</a></header>
+<main>
+  <section class="latest">
+    <!-- Hand-modelled on the structure documented in TP §5.9.2: card links match
+         ^/[a-z0-9-]+-songs(-digits)?$ and carry a poster plus caption text. -->
+    <div class="card">
+      <a href="/jailer-2-2026-songs"><img src="/images/jailer2.jpg" alt="Jailer 2"> Jailer 2 (2026) Starring: Rajinikanth, Ramya Krishnan Music: Anirudh Ravichander Director: Nelson Dilipkumar</a>
+    </div>
+    <div class="card">
+      <a href="https://www.masstamilan.dev/leo-songs"><img data-src="/images/leo.jpg" src="data:image/gif;base64,R0lGOD" alt="Leo"> Leo Starring: Vijay, Trisha Music: Anirudh Ravichander Director: Lokesh Kanagaraj</a>
+    </div>
+    <!-- Poster and title linked separately: must merge into one card -->
+    <div class="card">
+      <a href="/vidaamuyarchi-songs"><img src="/images/vida.jpg" alt="Vidaamuyarchi"></a>
+      <a href="/vidaamuyarchi-songs">Vidaamuyarchi Starring: Ajith Kumar Music: Anirudh Ravichander Director: Magizh Thirumeni</a>
+    </div>
+    <!-- Caption lives in a sibling element, not inside the anchor -->
+    <div class="card">
+      <a href="/ponniyin-selvan-2-songs-2023"><img srcset="/images/ps2.jpg 1x, /images/ps2@2x.jpg 2x"></a>
+      <p>Ponniyin Selvan 2 Starring: Vikram, Aishwarya Rai Music: A.R. Rahman Director: Mani Ratnam</p>
+    </div>
+    <!-- Image-only card with no caption at all: falls back to alt, then slug -->
+    <div class="card"><a href="/retro-songs"><img src="/images/retro.jpg" alt="Retro"></a></div>
+    <div class="card"><a href="/no-caption-here-2019-songs"><img src="/images/x.jpg"></a></div>
+    <!-- Only some labels present -->
+    <div class="card"><a href="/music-only-songs">Music Only Album Music: Yuvan Shankar Raja</a></div>
+  </section>
+  <nav>
+    <!-- Non-card links that must be ignored -->
+    <a href="/tamil-movies-a-z">Movies A-Z</a>
+    <a href="/songs">Songs</a>
+    <a href="/director/mani-ratnam">Mani Ratnam</a>
+    <a href="/page/2">Next</a>
+    <a href="#top">Top</a>
+    <a href="javascript:void(0)">Noop</a>
+    <a href="https://ads.example.com/promo-songs">Promo (other host)</a>
+    <a href="/leo-songs/comments">comments</a>
+    <a href="/jailer-2-2026-songs">Jailer 2 (2026) text link repeated later</a>
+  </nav>
+</main>
+</body>
+</html>

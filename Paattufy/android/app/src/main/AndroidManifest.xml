@@ -1,0 +1,241 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Library scan (AP §3.2): audio read; All-files access is needed for
+         sidecar .lrc files, zip extraction into the user-chosen folder and tag
+         writing through plain file paths. -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!-- Playback / notification / output awareness -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- Lyrics fetch + download hub -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:label="Paattufy"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+            <!-- Open with / share-target (AP §6, §8.14) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="audio/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="audio/*" />
+            </intent-filter>
+        </activity>
+
+        <!-- audio_service: media session, MediaStyle notification, foreground service -->
+        <service
+            android:name="com.ryanheise.audioservice.AudioService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.ryanheise.audioservice.MediaButtonReceiver"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+
+        <!-- Launcher icon colourway 0 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias0"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 1 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias1"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_1"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 2 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias2"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_2"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 3 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias3"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_3"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 4 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias4"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_4"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 5 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias5"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_5"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 6 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias6"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_6"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 7 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias7"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_7"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Launcher icon colourway 8 (runtime swap, AP §3.7b / TP §5.8) -->
+        <activity-alias
+            android:name=".IconAlias8"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_8"
+            android:label="Paattufy"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Home-screen widgets: small / medium / large (AP §6) -->
+        <receiver android:name=".PlayerWidgetSmall" android:exported="true" android:label="Paattufy (small)">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/player_widget_small_info" />
+        </receiver>
+        <receiver android:name=".PlayerWidgetMedium" android:exported="true" android:label="Paattufy (medium)">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/player_widget_medium_info" />
+        </receiver>
+        <receiver android:name=".PlayerWidgetLarge" android:exported="true" android:label="Paattufy (large)">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/player_widget_large_info" />
+        </receiver>
+        <receiver android:name=".WidgetActionReceiver" android:exported="false" />
+
+        <!-- Quick-settings tile -->
+        <service
+            android:name=".PlaybackTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_stat_music"
+            android:label="Paattufy"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter><action android:name="android.service.quicksettings.action.QS_TILE" /></intent-filter>
+        </service>
+
+        <!-- Android Auto: media app, browsable through the existing MediaBrowserService -->
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc" />
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT" />
+            <data android:mimeType="text/plain" />
+        </intent>
+        <intent>
+            <action android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL" />
+        </intent>
+    </queries>
+</manifest>

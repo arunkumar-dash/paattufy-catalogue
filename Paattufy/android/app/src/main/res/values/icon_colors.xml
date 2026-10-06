@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_bg_0">#8B3DFF</color>
+    <color name="ic_bg_1">#1E6BFF</color>
+    <color name="ic_bg_2">#00A8A8</color>
+    <color name="ic_bg_3">#12B76A</color>
+    <color name="ic_bg_4">#F5A300</color>
+    <color name="ic_bg_5">#FF6A2B</color>
+    <color name="ic_bg_6">#E5243B</color>
+    <color name="ic_bg_7">#FF4D9D</color>
+    <color name="ic_bg_8">#5B6B8C</color>
+</resources>
