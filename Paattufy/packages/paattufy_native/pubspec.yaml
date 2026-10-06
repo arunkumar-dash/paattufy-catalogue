@@ -1,0 +1,21 @@
+name: paattufy_native
+description: "Native Android bridges for Paattufy (MediaStore, audio decode, output routes, visualizer, icon switch, tag editor)."
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.13.4
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+# Registered as a real Flutter plugin (not in MainActivity) so the channels also
+# exist in background engines such as workmanager's analysis isolate.
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.paattufy.paattufy_native
+        pluginClass: PaattufyNativePlugin
